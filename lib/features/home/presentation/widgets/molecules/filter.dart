@@ -22,7 +22,7 @@ class FilterTypes extends StatelessWidget {
             builder: (_) {
               return DraggableScrollableSheet(
                 expand: false,
-                initialChildSize: 0.8, // 👈 80% de la pantalla
+                initialChildSize: 0.8,
                 minChildSize: 0.5,
                 maxChildSize: 0.95,
                 builder: (_, controller) {

@@ -13,7 +13,6 @@ class PokemonRepository {
 
       return results.map((json) => PokemonModel.fromJson(json)).toList();
     } on DioException catch (e) {
-      // Manejo de errores de red de Dio
       throw Exception("Error en la petición: ${e.message}");
     } catch (e) {
       throw Exception("Error inesperado: $e");

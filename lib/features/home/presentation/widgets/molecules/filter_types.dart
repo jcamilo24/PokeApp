@@ -9,8 +9,6 @@ class _FilterBottomSheet extends ConsumerWidget {
     final state = ref.watch(homeProvider);
     final homeViewModel = ref.read(homeProvider.notifier);
     final l10n = AppLocalizations.of(context)!;
-
-    // 👉 Definimos los types como claves internas (consistentes con los models)
     final allTypes = [
       "pokemonTypeWater",
       "pokemonTypeFire",
@@ -32,7 +30,6 @@ class _FilterBottomSheet extends ConsumerWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Cerrar + título
             IconButton(
               icon: const Icon(Icons.close),
               onPressed: () {
@@ -40,7 +37,6 @@ class _FilterBottomSheet extends ConsumerWidget {
                 Navigator.pop(context);
               },
             ),
-
             Center(
               child: Text(
                 l10n.filtersTitle,
@@ -51,9 +47,7 @@ class _FilterBottomSheet extends ConsumerWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 20),
-
             Text(
               l10n.filtersType,
               style: const TextStyle(
@@ -62,8 +56,6 @@ class _FilterBottomSheet extends ConsumerWidget {
               ),
             ),
             const Divider(),
-
-            // Lista de tipos con Riverpod (sin setState)
             Expanded(
               child: ListView.builder(
                 controller: scrollController,
@@ -82,13 +74,9 @@ class _FilterBottomSheet extends ConsumerWidget {
                 },
               ),
             ),
-
             const SizedBox(height: 16),
-
-            // Botones
             Column(
               children: [
-                // Aplicar (ya no hace nada especial, porque toggleType actualiza en tiempo real)
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -109,8 +97,6 @@ class _FilterBottomSheet extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-
-                // Cancelar (limpia filtros y cierra)
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(

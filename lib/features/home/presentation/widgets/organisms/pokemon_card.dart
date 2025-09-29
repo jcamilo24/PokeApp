@@ -21,8 +21,6 @@ class PokemonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-
-    // Para colores/íconos seguimos usando el primer tipo como "base"
     final primaryTypeKey = types.isNotEmpty ? types.first : "pokemonTypeNormal";
     final primaryTypeBase = _baseType(primaryTypeKey);
 
@@ -35,7 +33,6 @@ class PokemonCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // 👉 Columna con info del Pokémon
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,18 +62,14 @@ class PokemonCard extends StatelessWidget {
               ],
             ),
           ),
-
-          // 👉 Imagen + botón favorito
           Container(
             width: 140,
             height: 140,
-            // fondo del bloque (contraste)
             decoration: BoxDecoration(
                 color: _backgroundColorContainer(primaryTypeBase),
                 borderRadius: const BorderRadius.all(Radius.circular(32))),
             child: Stack(
               children: [
-                // Icono grande semi-transparente como fondo
                 Center(
                   child: Icon(
                     _iconForType(primaryTypeBase),
@@ -84,8 +77,6 @@ class PokemonCard extends StatelessWidget {
                     color: Colors.white.withOpacity(0.5),
                   ),
                 ),
-
-                // Imagen del Pokémon (centro)
                 Center(
                   child: Image.network(
                     imageUrl,
@@ -98,8 +89,6 @@ class PokemonCard extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // Botón favorito en la esquina superior derecha del bloque
                 Positioned(
                   top: 12,
                   right: 11,
@@ -109,10 +98,8 @@ class PokemonCard extends StatelessWidget {
                       padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.grey
-                            .withOpacity(0.6), // círculo gris translúcido
-                        border: Border.all(
-                            color: Colors.white, width: 2), // borde blanco
+                        color: Colors.grey.withOpacity(0.6),
+                        border: Border.all(color: Colors.white, width: 2),
                       ),
                       child: Icon(
                         isFavorite ? Icons.favorite : Icons.favorite_border,
@@ -130,7 +117,6 @@ class PokemonCard extends StatelessWidget {
     );
   }
 
-  // Convierte la key (ej: "pokemonTypeGrass") en texto localizado
   static String _translateTypeKey(String key, AppLocalizations l10n) {
     switch (key) {
       case "pokemonTypeGrass":
@@ -154,13 +140,10 @@ class PokemonCard extends StatelessWidget {
     }
   }
 
-  /// Convierte la key en el tipo "base" (ej: pokemonTypeGrass -> grass)
   static String _baseType(String key) {
     return key.replaceFirst("pokemonType", "").toLowerCase();
   }
 }
-
-// ===== Helpers =====
 
 Color _backgroundColor(String type) {
   switch (type) {

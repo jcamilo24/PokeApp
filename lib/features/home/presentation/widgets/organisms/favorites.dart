@@ -46,7 +46,7 @@ class PokemonsFavorites extends ConsumerWidget {
             types: pokemon.types,
             imageUrl: pokemon.imageUrl,
             isFavorite: true,
-            onFavoriteToggle: () {}, // bloqueado
+            onFavoriteToggle: () {},
           ),
         );
       },

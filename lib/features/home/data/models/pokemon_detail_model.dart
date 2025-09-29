@@ -12,9 +12,8 @@ class PokemonDetailModel {
   final String cryUrl;
 
   // Extras localizados
-  final String categoryKey; // -> clave en arb (ej: pokemonCategorySeed)
-  final String
-      descriptionKey; // -> clave en arb (ej: pokemonDescriptionBulbasaur)
+  final String categoryKey;
+  final String descriptionKey;
   final double maleRate;
   final double femaleRate;
   final List<String> weaknesses;
@@ -97,7 +96,7 @@ class PokemonDetailModel {
       case "pokemonCategoryMouse":
         return loc.pokemonCategoryMouse;
       default:
-        return categoryKey; // fallback
+        return categoryKey;
     }
   }
 
@@ -145,7 +144,7 @@ class PokemonDetailModel {
       case "pokemonDescriptionRaticate":
         return loc.pokemonDescriptionRaticate;
       default:
-        return descriptionKey; // fallback
+        return descriptionKey;
     }
   }
 

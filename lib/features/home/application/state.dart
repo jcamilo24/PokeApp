@@ -23,7 +23,7 @@ class HomeState {
         isLoading: false,
         pokemons: [],
         currentIndex: 0,
-        favorites: {}, // vacío al inicio
+        favorites: {},
         searchQuery: "",
         selectedTypes: {},
       );

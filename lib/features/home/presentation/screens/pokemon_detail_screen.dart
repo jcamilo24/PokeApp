@@ -9,7 +9,6 @@ class PokemosDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
 
-    // usamos la key del primer tipo para el estilo del header
     final primaryTypeKey =
         pokemon.types.isNotEmpty ? pokemon.types.first : "pokemonTypeNormal";
     final primaryTypeBase = PokemonCard._baseType(primaryTypeKey);
@@ -18,7 +17,6 @@ class PokemosDetailScreen extends ConsumerWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // 👉 Encabezado con fondo del tipo
             Container(
               height: 240,
               width: double.infinity,
@@ -103,7 +101,6 @@ class PokemosDetailScreen extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 50),
-            // 👉 Nombre + número
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -121,7 +118,6 @@ class PokemosDetailScreen extends ConsumerWidget {
                     style: const TextStyle(fontSize: 16, color: Colors.black),
                   ),
                   const SizedBox(height: 12),
-                  // 👉 Chips de tipos (traducidos)
                   Wrap(
                     spacing: 8,
                     children: pokemon.types
@@ -130,7 +126,6 @@ class PokemosDetailScreen extends ConsumerWidget {
                         .toList(),
                   ),
                   const SizedBox(height: 16),
-                  // 👉 Descripción
                   Text(
                     pokemon.description(l10n),
                     textAlign: TextAlign.start,
@@ -139,7 +134,6 @@ class PokemosDetailScreen extends ConsumerWidget {
                   const SizedBox(height: 10),
                   const Divider(),
                   const SizedBox(height: 10),
-                  // 👉 Stats principales
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -207,7 +201,6 @@ class PokemosDetailScreen extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  // 👉 Debilidades (traducidas)
                   Text(
                     l10n.pokemonDetailWeaknesses,
                     style: const TextStyle(

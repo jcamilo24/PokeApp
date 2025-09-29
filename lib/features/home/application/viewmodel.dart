@@ -44,7 +44,6 @@ class HomeViewModel extends StateNotifier<HomeState> {
     state = state.copyWith(favorites: newFavorites);
   }
 
-  // 🔍 Filtros
   void updateSearchQuery(String query) {
     state = state.copyWith(searchQuery: query);
   }
@@ -63,7 +62,6 @@ class HomeViewModel extends StateNotifier<HomeState> {
     state = state.copyWith(searchQuery: "", selectedTypes: {});
   }
 
-  // Getter de pokemons filtrados
   List<PokemonDetailModel> get filteredPokemons {
     return state.pokemons.where((p) {
       final matchName =
